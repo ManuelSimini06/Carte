@@ -113,7 +113,7 @@ function clickCarta2() {
     miaClass.value = "disab2";
     disabCarta.setAttributeNode(miaClass);
     if (counter == 0) {
-        perdente();
+        sconfitta();
     }
     }else{
         vincita();
