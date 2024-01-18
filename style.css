@@ -1,0 +1,319 @@
+:root {
+  --background1:url(carte/asso_denari.png);
+  --background2:url(carte/asso_coppe.png);
+  --background3:url(carte/asso_bastoni.png);
+  --background4:url(carte/asso_spade.png);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("carte/tavolo_gioco.png");
+    background-repeat: repeat;
+    font-family: Agbalumo;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+h1,h2 {
+    color: #ffd700;
+    font-size:  60px;
+    position: absolute;
+    top: 50px;
+    text-align: center;
+  }
+
+h2 {
+    color: #ffffff;
+    font-size:  24px;
+    top: 70px;
+    opacity: 0;
+    transition: all .3s linear;
+}
+
+.container {
+    display:flex;
+    width: 900px;
+    height: 200px;
+    margin: 40px 0;
+    perspective: 600px;
+  }
+
+.carta1, .carta2, .carta3, .carta4 {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+    transition: all 1s;
+  }
+
+.carta_faccia {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.bottone {
+  color: #000000;
+  background-color: #ffd700;
+  position: absolute;
+  bottom: 100px;
+  display: flex;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.bottone2 {
+  color: #000000;
+  position: absolute;
+  right: 50px;
+  bottom: 100px;
+  display: flex;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.bottone.bottoneDisabilitato {
+  color: #ffffff;
+  background: #000000;
+  box-shadow: 0px 0px 9px 0px #ffffff;
+  z-index: -1;
+}
+
+.bottone:hover {
+  color: #ffffff;
+  background: #000000;
+  box-shadow: 0px 0px 9px 0px #ffffff;
+}
+
+.bottone2:hover {
+  color: #ffffff;
+  background: #000000;
+  box-shadow: 0px 0px 9px 0px #ffffff;
+}
+
+.carta1.scopriCarta, .carta2.scopriCarta, .carta3.scopriCarta, .carta4.scopriCarta {
+  transform: rotateY(-180deg);
+}
+
+.carta_faccia--front1, .carta_faccia--front2, .carta_faccia--front3, .carta_faccia--front4 {
+  background-image: url("carte/retro_carte.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.carta_faccia--back1, .carta_faccia--back2, .carta_faccia--back3, .carta_faccia--back4 {
+  background-image: var(--background1);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  transform: rotateY(-180deg);
+}
+
+.carta_faccia--back2 {
+  background-image: var(--background2);
+}
+
+.carta_faccia--back3 {
+  background-image: var(--background3);
+}
+
+.carta_faccia--back4 {
+  background-image: var(--background4);
+}
+
+.errore {
+  width: 100%;
+  height: 150%;
+  transition: all 2s linear;
+  background-image: url(carte/croce_errore.png);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  top:-50px;
+  position: relative;
+}
+
+.footer {
+  position: absolute;
+  bottom: 15px;
+  color: #ffffff;
+}
+
+.opacity-on {
+  opacity: 1!important;
+}
+.animaTitle {
+  animation: animaTitle 1s linear reverse both;
+}
+.disabilita {
+  width: 900px;
+  height: 220px;
+  position: absolute;
+  font-size: 37px;
+  color: #ffffff;
+  background: #00000042;
+  text-align: center;
+  padding: 60px;
+  animation: animazione 3s linear;
+  z-index: 999;
+}
+
+.disab1, .disab2, .disab3, .disab4 {
+  width: 25%;
+  height: 200%;
+  position: absolute;
+  z-index: 999;
+  top:-60px;
+}
+
+.disab2 {
+  left: 230px;
+}
+
+.disab3 {
+  left: 450px;
+}
+
+.disab4 {
+  left: 690px;
+}
+
+.disabilitaEnd {
+  background: transparent;
+  width: 990px;
+  height: 220px;
+  position: absolute;
+  z-index: 999;
+  text-align: center;
+  padding: 60px;
+}
+
+.vincitore, .perdente {
+  border: 2px solid #ffd700;
+  font-size: 112px;
+  color: #ffd700;
+  z-index: 999;
+  background:#1F487E;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 17px 9px #ffffff;
+  animation: vincitore 2.2s linear infinite both;
+}
+
+.perdente {
+  color: #ff0000;
+  background:#ffd700;
+}
+
+.removeBlock {
+  transition: all 600ms linear;
+  scale: 0;
+  rotate: 180deg;
+
+}
+
+.avvia1 {
+  animation: carta1 1.2s linear 2 reverse;
+}
+
+.avvia2 {
+  animation: carta2 0.8s linear 2 reverse;
+}
+
+.avvia3 {
+  animation: carta3 1.2s linear 2 reverse;
+}
+
+.avvia4 {
+  animation: carta4 0.7s linear 2 reverse;
+}
+
+.presentation{
+  animation: animazione 3s cubic-bezier(0.8,-0.17,0.48,1.43);
+}
+
+@keyframes animazione {
+    0% {
+      transform: rotateY(0deg);
+      opacity: 0;
+    }
+    50% {
+      transform: rotateY(180deg);
+      opacity: 1;
+    }
+}
+
+@keyframes animaTitle {
+  0%{
+    top: 20px;
+    font-size: 26px;
+  }
+  100%{
+    top: 60px;
+    font-size: 60px;
+  }
+}
+
+@keyframes carta1 {
+  0%, 100%{
+    transform: translate(0vmin);
+  }
+  50%{
+    transform: translate(80vmin) scale(0.9);
+  }
+}
+
+@keyframes carta2 {
+  0%, 100%{
+    transform: translate(0vmin);
+  }
+  50%{
+    transform: translate(30vmin) scale(0.9);
+  }
+}
+
+@keyframes carta3 {
+  0%, 100%{
+    transform: translate(0vmin);
+  }
+  50%{
+    transform: translate(-30vmin) scale(0.9);
+  }
+}
+
+@keyframes carta4 {
+  0%, 100%{
+    transform: translate(0vmin);
+  }
+  50%{
+    transform: translate(-80vmin) scale(0.9);
+  }
+}
+
+@keyframes vincitore {
+  0%,100%{
+    scale:0.8;
+    rotate: 45deg;
+  }
+  50%{
+    scale:1;
+    rotate:-45deg;
+  }
+}
